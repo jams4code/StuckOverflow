@@ -1,0 +1,30 @@
+.post {
+    color: white;
+}
+.subTitle{
+
+    font-size: 14px;
+}
+.badge-secondary{
+    color: white;
+    background: none;
+    border : 1px solid white;
+    font-size: 13px;
+}
+.askedBy{
+    padding: 0px;
+    margin: 0px;
+    text-align: left;
+}
+.body{
+    margin-bottom: 50px;
+}
+.dateComment{
+    font-size: 10px;
+}
+.btn-primary{
+    background-color: transparent;
+    color: white;
+    border-color: white;
+    font-variant-caps: all-small-caps;
+}

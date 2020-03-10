@@ -1,0 +1,25 @@
+.clickable{
+    cursor: pointer;
+}
+.tabs{
+    background-color: white;
+}
+.Table-Normal {
+    position: relative;
+    display: block;
+    margin: 10px auto;
+    padding: 0;
+    width: 100%;
+    height: auto;
+    border-collapse: collapse;
+    text-align: center;
+}
+.mat-expansion-panel{
+    box-sizing: border-box;
+}
+td.mat-cell, td.mat-footer-cell, th.mat-header-cell {
+    padding: 10px;
+    margin-left: 5px;
+    border:none;
+    padding-right: 20px;
+}

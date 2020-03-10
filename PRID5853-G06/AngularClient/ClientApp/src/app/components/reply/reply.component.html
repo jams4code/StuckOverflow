@@ -1,0 +1,30 @@
+<div>
+    <h1>Your Answer</h1>
+    <div class="row col-sm-12">
+        <div class="col-sm-12 ml-0 mr-0 mt-3">
+        <label class="label" for="body">
+            Body
+            <p class="subLabel mb-0 ml-2">Write down your answer</p>
+        </label>           
+        <div class="input-group">     
+            <div class="input-group-prepend ">                  
+                <div  class="input-group-text input-prepend-color">
+                        <fa-icon class="icon" [icon]="faAlignLeft"></fa-icon>
+                </div> 
+            </div>
+                    <textarea   class="form-control"   [(ngModel)]="body" rows="10"
+                    placeholder="... Answer ..."></textarea>
+                </div>      
+        </div> 
+        <div class="row col-sm-12">
+            <div class="col-sm-5"></div>
+            <div class="col-sm-3 mt-5">
+                    <button type="button" class="btn btn-secondary mr-2" (click)="cancel()"><fa-icon [icon]="faTimes"></fa-icon> Cancel</button>
+                        
+                    <button type="button" class="btn btn-primary" (click)="save()"><fa-icon [icon]="faSave"></fa-icon> {{saveButton}}</button>
+            </div>
+            <div class="col-sm-4"></div>
+        </div>
+                                 
+    </div> 
+</div>

@@ -1,0 +1,76 @@
+<header>
+  <nav class='navbar navbar-expand-sm navbar-toggleable-sm navbar-light transparent   mb-3 '>
+    <div class="container">
+      <a class="navbar-brand text-white" [routerLink]='["/"]'>Jamal Q/A G06</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse"
+              aria-label="Toggle navigation" [attr.aria-expanded]="isExpanded" (click)="toggle()">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <!--NavBar LEFT-->
+      <div class="navbar-collapse collapse d-sm-inline-flex" [ngClass]='{"show": isExpanded}'>
+        <ul class="navbar-nav flex-grow mr-auto">
+          <!--Home-->
+          <li class="nav-item" [routerLinkActive]='["link-active"]' [routerLinkActiveOptions]='{ exact: true }'>
+            <a class="nav-link text-white" [routerLink]='["/"]'>
+              <span class="material-icons">home</span>
+              <span class="aligned-with-icon"> Home </span>
+            </a>
+          </li>
+          <!--Tags-->
+          <li class="nav-item" [routerLinkActive]='["link-active"]'>
+            <a class="nav-link text-white" [routerLink]='["/tags"]'>
+              <span class="material-icons">list</span>
+              <span class="aligned-with-icon">Tags</span>
+            </a>
+          </li>
+          <!--Questions-->
+          <li class="nav-item" [routerLinkActive]='["link-active"]'>
+            <a class="nav-link text-white" [routerLink]='["/posts"]'>
+              <span class="material-icons">list</span>
+              <span class="aligned-with-icon">Questions</span>
+            </a>
+          </li>
+          <!--Users-->
+          <!-- <li class="nav-item" >
+            <a class="nav-link text-white" [routerLink]='["/users"]' [routerLinkActive]='["link-active"]'>
+              <span class="material-icons">list</span>
+              <span class="aligned-with-icon">Users</span>
+            </a>
+          </li> -->
+        </ul>
+        <!--NavBar RIGHT-->
+        <ul class="navbar-nav">
+          <!--Login-->
+          <li class="nav-item"  *ngIf="!currentUser">
+            <a class="nav-link text-white" [routerLink]='["/login"]' [routerLinkActive]='["link-active"]'>
+              <span class="material-icons">exit_to_app</span>
+              <span> Login </span>
+            </a>
+          </li>
+          <!--Sign Up-->
+          <li class="nav-item" [routerLinkActive]='["link-active"]' *ngIf="!currentUser">
+            <a class="nav-link text-white" [routerLink]='["/signup"]'>
+              <span class="material-icons">person_add</span>
+              <span> Signup </span>
+            </a>
+          </li>
+          <!--Admin page-->
+          <li class="nav-item" [routerLinkActive]='["link-active"]' *ngIf="isAdmin">
+            <a class="nav-link text-white clickable" [routerLink]='["/admin"]'>
+              <span class="material-icons">settings_applications</span>
+              <span> Admin Page </span>
+            </a>
+          </li>
+          <!--Logout-->
+          <li class="nav-item" [routerLinkActive]='["link-active"]' *ngIf="currentUser">
+            <a class="nav-link text-white clickable" (click)='logout()'>
+              <span class="material-icons">power_settings_new</span>
+              <span> Logout </span>
+              <span class="pseudo">[{{authenticationService.currentUser.pseudo}}]</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>

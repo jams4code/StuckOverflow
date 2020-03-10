@@ -1,0 +1,43 @@
+<!-- Missing : FROM API: GetByQuestionId Votes|Answer|Views|Tags|LastReply(Time)-->
+<div class="question">
+<div class="row">
+    <div class="col-sm-5">
+        <h1>Top Questions</h1>
+    </div>
+    <div class="col-sm-5">
+        <!-- Search box -->
+        <div class="input-group">
+            <input type="text" [(ngModel)]="keywords"  (keyup)="onKey($event)" placeholder="Search Question" />
+            <div class="input-group-append">
+                <button class="btn btn-search" (click)="searchIt()" type="button"><fa-icon [icon]="faSearch"></fa-icon></button>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-2">
+        <button class="btn btn-primary mt-2 " (click)="askQuestion()" >Ask Question</button>
+    </div>
+</div>
+<!-- Filter Selection -->
+<div class="row">
+    <div class="col-sm-8">
+
+    </div>
+    <div class="col-sm-4">
+        <mat-button-toggle-group name="filter">
+            <mat-button-toggle (click)="byVotesSearch()" value="ByVotes">By votes</mat-button-toggle>
+            <mat-button-toggle (click)="newestSearch()" value="Newest">Newest</mat-button-toggle>
+            <mat-button-toggle (click)="unansweredSearch()" value="Unanswered">Unanswered</mat-button-toggle>
+          </mat-button-toggle-group>
+    </div>
+</div>
+<!-- Div Question -->
+<div id="question" *ngIf="questions.length > 0">
+    <div *ngFor="let question of questions">
+        <app-post-list-item [question]="question"></app-post-list-item>
+    </div>
+    
+</div>
+<div id="noQuestion" *ngIf="questions.length == 0">
+    <p>No question found</p>
+</div>
+</div>

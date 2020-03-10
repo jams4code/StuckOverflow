@@ -1,0 +1,119 @@
+
+    
+
+<mat-accordion>
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              Tags
+            </mat-panel-title>
+            <mat-panel-description>
+                 Update  | Delete |  Add
+            </mat-panel-description>
+            </mat-expansion-panel-header>
+            <div class="row">
+                <div class="col-sm-11">
+                    <mat-table label="Tags" [dataSource]="tags" #mytable>
+                        <!-- Id Column -->
+                        <ng-container matColumnDef="id">
+                            <th mat-header-cell *matHeaderCellDef> ID. </th>
+                            <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+                        </ng-container>
+                    
+                        <!-- Name Column -->
+                        <ng-container matColumnDef="name">
+                            <th mat-header-cell *matHeaderCellDef> Name </th>
+                            <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+                        </ng-container>
+                    
+                        <!-- Action Column -->
+                        <ng-container matColumnDef="action">
+                            <th mat-header-cell *matHeaderCellDef> Action </th>
+                            <td mat-cell *matCellDef="let element" class="action-link"> 
+                            <a class="clickable badge badge-secondary" (click)="openDialog('Update',element)">Edit</a> | 
+                            <a class="clickable badge badge-danger" (click)="openDialog('Delete',element)">Delete</a>  
+                            </td>
+                        </ng-container>
+                
+                        <tr mat-header-row *matHeaderRowDef="displayedColumns" class="text-center"></tr>
+                        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                    </mat-table>
+                </div>
+                <div class="col-sm-1">
+                    <button mat-button (click)="openDialog('Add',{})" mat-flat-button color="primary">Add Tag</button>
+                </div>
+            </div>
+        </mat-expansion-panel>
+        <mat-expansion-panel (opened)="panelOpenState = true"
+                       (closed)="panelOpenState = false">
+        <mat-expansion-panel-header>
+        <mat-panel-title>
+            Users
+        </mat-panel-title>
+        <mat-panel-description>
+            Update | Delete | Add
+        </mat-panel-description>
+        </mat-expansion-panel-header>
+        <div class="row">
+            <div class="col-sm-11">
+                <mat-table label="Tags" [dataSource]="users" #mytable >
+                    <!-- Id Column -->
+                    <ng-container matColumnDef="id">
+                        <th mat-header-cell *matHeaderCellDef> ID. </th>
+                        <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+                    </ng-container>
+                
+                    <!-- Name Column -->
+                    <ng-container matColumnDef="pseudo">
+                        <th mat-header-cell *matHeaderCellDef> Pseudo </th>
+                        <td mat-cell *matCellDef="let element"> {{element.pseudo}} </td>
+                    </ng-container>
+                    <!-- Email Column -->
+                    <ng-container matColumnDef="email">
+                        <th mat-header-cell *matHeaderCellDef> Email </th>
+                        <td mat-cell *matCellDef="let element"> {{element.email}} </td>
+                    </ng-container>
+                    <!-- LASTNAME Column -->
+                    <ng-container matColumnDef="lastname">
+                        <th mat-header-cell *matHeaderCellDef> LastName </th>
+                        <td mat-cell *matCellDef="let element"> {{element.lastName}} </td>
+                    </ng-container>
+                    <!-- FIRSTNAME Column -->
+                    <ng-container matColumnDef="firstname">
+                        <th mat-header-cell *matHeaderCellDef> FirstName </th>
+                        <td mat-cell *matCellDef="let element"> {{element.firstName}} </td>
+                    </ng-container>
+                    <!-- BirthDay Column -->
+                    <ng-container matColumnDef="birthdate">
+                        <th mat-header-cell *matHeaderCellDef> Birthdate </th>
+                        <td mat-cell *matCellDef="let element"> {{element.birthDate | date:'mediumDate'}} </td>
+                    </ng-container>
+                    <!-- Reputation Column -->
+                    <ng-container matColumnDef="reputation">
+                        <th mat-header-cell *matHeaderCellDef> Reputation </th>
+                        <td mat-cell *matCellDef="let element"> {{element.reputation}} </td>
+                    </ng-container>
+                    <!-- Role Column -->
+                    <ng-container matColumnDef="role">
+                        <th mat-header-cell *matHeaderCellDef> Role </th>
+                        <td mat-cell *matCellDef="let element"> {{element.role}} </td>
+                    </ng-container>
+                    <!-- Action Column -->
+                    <ng-container matColumnDef="action">
+                        <th mat-header-cell *matHeaderCellDef> Action </th>
+                        <td mat-cell *matCellDef="let element" class="action-link"> 
+                        <a class="clickable badge badge-secondary" (click)="openDialogUser('Update',element)">Edit</a> | 
+                        <a class="clickable badge badge-danger" (click)="openDialogUser('Delete',element)">Delete</a>  
+                        </td>
+                    </ng-container>
+            
+                    <tr mat-header-row *matHeaderRowDef="displayedColumnsUsers" class="text-center"></tr>
+                    <tr mat-row *matRowDef="let row; columns: displayedColumnsUsers;"></tr>
+                </mat-table>
+            </div>
+            <div class="col-sm-1">
+                <button mat-button (click)="openDialogUser('Add',{})" mat-flat-button color="primary">Add User</button>
+            </div>
+        </div>
+    </mat-expansion-panel>
+</mat-accordion>

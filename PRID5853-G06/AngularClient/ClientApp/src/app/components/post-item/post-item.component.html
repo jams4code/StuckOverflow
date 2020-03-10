@@ -1,0 +1,53 @@
+<!-- To add
+    Button Edit if owner
+    Button Edit redirect to edit
+    Button Add a comment
+    Button Vote + & Vote -
+    Asked Time ago
+    Active Time ago
+-->
+<div *ngIf="post">
+    <div class="row col-sm-12 mt-2 mb-5">
+        <div class="col-sm-1 mt-5 ml-2">
+            <span (click)="voteUp()" class="material-icons vote clickable" [ngClass]="{userVote: userVoteUp}">thumb_up</span>
+            <p class="ml-2 mt-0 mb-1">{{ post.score }}</p>
+            <span (click)="voteDown()" class="material-icons vote clickable" [ngClass]="{userVote: userVoteDown}">thumb_down</span>
+            <span (click)="acceptAnswer()" class="material-icons answer clickable" *ngIf="canAcceptAnswer()" [ngClass]="{acceptedAnswer: isAcceptedAnswer() }">assignment_turned_in</span>
+            <span class="material-icons answer acceptedAnswer" *ngIf="isAcceptedAnswer() && !canAcceptAnswer()">assignment_turned_in</span>
+        </div>
+        <div class="col-sm-10">
+            <div class="body">
+                <p>{{ post.body }}</p>
+            </div>
+            <div class="col-7 d-inline m-0 p-0" *ngIf="post.tags">
+                <p *ngFor="let tag of post.tags" class="badge badge-danger mr-1">{{ tag.name }}</p>
+            </div>
+            <div class="row mb-5">
+                <div class="col-9">
+                    <button *ngIf="isOwnerPost" class="btn btn-primary" [routerLink]='["/questions/ask/",post.id]'>edit</button>
+                    <button *ngIf="canDeletePost" (click)="deletePost()" class="btn btn-primary">delete</button>
+                </div>
+                <div class="col-3 mr-0 badge by" >
+                    <p class="askedBy">
+                        <span *ngIf="post.title">Asked </span>
+                        <span *ngIf="!post.title">Answered </span>
+                        {{ post.timestamp | date:'d MMMM, y' }} At {{ post.timestamp |date:'HH:mm'}}</p> 
+                    <p class="askedBy">By {{ post.author.pseudo }}</p> 
+                </div>
+            </div>
+            <div class="border-bottom">
+                <p>Comments</p>
+            </div>
+            <div class="row col-sm-12 ml-1 mr-1 border-bottom pt-2" *ngFor="let comment of post.comments; let index = index;" >
+                <div class="col-sm-1">
+                    <p>{{ index + 1 }}</p>
+                </div>
+                <div class="col-sm-11">
+                    <p >{{ comment.body }}  - <span class="badge by">By {{ comment.author.pseudo }}</span> <span class="dateComment ml-1">{{ comment.timestamp | date:'d MMMM, y' }} at {{ comment.timestamp |date:'HH:mm'}}</span></p >
+                    <div class="float-right" *ngIf="checkIsOwnerCom(comment)"><button class="btnNone" (click)="editComment(comment)"><mat-icon>create</mat-icon></button><button class="btnNone" (click)="deleteComment(comment)"><mat-icon>delete_sweep</mat-icon></button></div>
+                </div>
+            </div>
+            <button class="btn btn-primary mt-2" (click)="openDialog()">Add a comment</button>
+        </div>
+    </div>
+</div>

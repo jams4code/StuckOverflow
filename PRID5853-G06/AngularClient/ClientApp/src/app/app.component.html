@@ -1,0 +1,13 @@
+
+  <div *ngIf="loading" class="loaderContainer">
+    <app-loader class="loader"></app-loader>
+  </div>
+  <div *ngIf="!loading">
+    <app-nav-menu></app-nav-menu>
+    <div class="container">
+      <router-outlet></router-outlet>
+    </div>
+    <app-footer></app-footer>
+  </div>
+  
+

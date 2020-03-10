@@ -1,0 +1,27 @@
+<label *ngIf="label">{{label}}</label>
+
+<div (focusout)="onFocusOut()" class="input-group">
+  <div class="input-group-prepend">
+    <div class="input-group-text input-prepend-color">
+      <fa-icon [icon]="leftIcon"></fa-icon>
+    </div>
+  </div>
+  <div class="">
+    <input type="text" class="form-control" (keydown)="inputKeyDown($event)" (focus)="onFocus()"
+      (keyup)="search($event)" [(ngModel)]="selectedItem.name" value="{{selectedItem.name}}" [placeholder]="placeHolder"
+      autocomplete="off">
+
+    <div #comboContainer class="options" *ngIf="itemsList.length>0&&displayList">
+      <ul #comboList class="m-0 p-0">
+        <li class="pt-2 pb-2 pl-1 optionItem" *ngFor="let item of itemsList;let i = index"
+          [ngClass]="{'optionItemActive': temporarySelection === i}" (click)="chooseItem(item)"
+          [innerHTML]="item.name"> {{item.name}}</li>
+      </ul>
+    </div>
+  </div>
+  <div class="input-group-append" *ngIf="appendButton">
+    <button (click)="rightButtonClick()" [class]="appendButtonClass">
+      <fa-icon class="icon" [icon]="appendButtonIcon"></fa-icon>
+    </button>
+  </div>
+</div>

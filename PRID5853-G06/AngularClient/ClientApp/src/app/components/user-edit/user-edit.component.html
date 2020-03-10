@@ -1,0 +1,87 @@
+<!-- <mat-form-field>
+    <input placeholder="Update Pseudo" matInput [(ngModel)]="user.pseudo">
+</mat-form-field> -->
+<form [formGroup]="frm" novalidate>
+    <mat-card class="parent">
+        <mat-list>
+          <!--Pseudo-->
+          <mat-list-item>
+            <mat-form-field>
+              <input matInput (change)="user.pseudo = $event.target.value" placeholder="Pseudo" [formControl]="ctlPseudo" required appSetFocus>
+              <mat-error class="float-right" *ngIf="ctlPseudo.hasError('required')">Required</mat-error>
+              <mat-error class="float-right" *ngIf="ctlPseudo.hasError('minlength')">
+                Minimum length is
+                {{ctlPseudo.errors['minlength'].requiredLength}}
+              </mat-error>
+              <mat-error class="float-right" *ngIf="ctlPseudo.hasError('maxlength')">
+                Maximum length is
+                {{ctlPseudo.errors['maxlength'].requiredLength}}
+              </mat-error>
+              <mat-error class="float-right" *ngIf="ctlPseudo.hasError('pseudoUsed')">This pseudo is not available</mat-error>
+            </mat-form-field>
+          </mat-list-item>
+          <!--Email-->
+          <mat-list-item>
+            <mat-form-field>
+              <input type="email" (change)="user.email = $event.target.value" matInput placeholder="Email"  [formControl]="ctlEmail" required autocomplete="new-email">
+              <mat-error class="float-right" *ngIf="ctlEmail.hasError('required')">Required</mat-error>
+              <mat-error class="float-right" *ngIf="ctlEmail.hasError('pattern')">Invalid Email address</mat-error>
+            </mat-form-field>
+          </mat-list-item>
+          <!--FirstName-->
+          <mat-list-item>
+            <mat-form-field>
+              <input matInput (change)="user.FirstName = $event.target.value" placeholder="FirstName"  [formControl]="ctlFirstName">
+              <mat-error class="float-right" *ngIf="ctlFirstName.hasError('minlength')">
+                Minimum length is
+                {{ctlFirstName.errors['minlength'].requiredLength}}
+              </mat-error>
+              <mat-error class="float-right" *ngIf="ctlFirstName.hasError('maxlength')">
+                Maximum length is
+                {{ctlFirstName.errors['maxlength'].requiredLength}}
+              </mat-error>
+            </mat-form-field>
+          </mat-list-item>
+          <!--LastName-->
+        <mat-list-item>
+            <mat-form-field>
+              <input (change)="user.lastName = $event.target.value" matInput placeholder="LastName"  [formControl]="ctlLastName">
+              <mat-error class="float-right" *ngIf="ctlLastName.hasError('minlength')">
+                Minimum length is
+                {{ctlLastName.errors['minlength'].requiredLength}}
+              </mat-error>
+              <mat-error class="float-right" *ngIf="ctlLastName.hasError('maxlength')">
+                Maximum length is
+                {{ctlLastName.errors['maxlength'].requiredLength}}
+              </mat-error>
+              <mat-error class="float-right" *ngIf="ctlLastName.hasError('required')">Required</mat-error>
+            </mat-form-field>
+          </mat-list-item>
+          <!--BirtDate-->
+          <!--To add: Validation +18-->
+          <mat-list-item>
+            <mat-form-field>
+              <input matInput (change)="user.birthDate = $event.target.value" [formControl]="ctlBirthDate"  [matDatepicker]="picker" placeholder="Date of birth" [min]="minDate" [max]="maxDate">
+              <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+              <mat-datepicker #picker></mat-datepicker>
+              <mat-error class="float-right" *ngIf="ctlBirthDate.hasError('matDatepickerMax') ">Invalid date -> Must be > 18 years old</mat-error>
+            <mat-error class="float-right" *ngIf="ctlBirthDate.hasError('matDatepickerMin') ">Invalid date -> Must be younger than 100 years old</mat-error>
+            <mat-error class="float-right" *ngIf="ctlBirthDate.invalid && !ctlBirthDate.hasError('matDatepickerMin') && !ctlBirthDate.hasError('matDatepickerMax')">Invalid date -> MM/DD/AAAA</mat-error>
+            </mat-form-field>
+          </mat-list-item>
+          <!--Reputation-->
+          <mat-list-item>
+            <mat-form-field>
+              <input type="number" min="0" max="100" matInput (change)="user.reputation = $event.target.value" [formControl]="ctlReputation"  placeholder="Reputation">
+            </mat-form-field>
+          </mat-list-item>
+          <!--Role-->
+          <mat-list-item>
+            <mat-form-field>
+              <input type="number" min="1" max="2" matInput (change)="user.role = $event.target.value" [formControl]="ctlRole" placeholder="Role">
+            </mat-form-field>
+          </mat-list-item>
+        </mat-list>
+    </mat-card>
+  </form>
+  

@@ -1,0 +1,47 @@
+a.navbar-brand {
+  white-space: normal;
+  text-align: center;
+  word-break: break-all;
+}
+
+html {
+  font-size: 14px;
+  
+}
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+.box-shadow {
+  box-shadow: 12px 12px 2px 1px black;
+
+}
+.aligned-with-icon{
+  vertical-align: top;
+}
+span.material-icons{
+  vertical-align: top;
+  font-size: 1.25em;
+}
+
+.link-active{
+  border:1px solid whitesmoke;
+}
+.link-active>a{
+  
+    color:whitesmoke!important;
+  
+}
+.transparent{
+  background-color: transparent;
+}
+.clickable{
+  cursor: pointer;
+}
+
+.pseudo{
+  color: black;
+  font-weight: bold;
+}

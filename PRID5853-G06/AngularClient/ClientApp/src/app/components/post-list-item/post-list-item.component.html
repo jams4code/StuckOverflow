@@ -1,0 +1,35 @@
+<div class="row p-2 clickable" [routerLink]='["/posts/",question.id]'>
+    <!-- Div columns : Vote|Answer|Views -->
+    <div class="col-4 row align-items-center trio">
+        <!-- Column VOTE(s)-->
+        <div class="col-4">
+            <p class="text-center m-0">{{ question.score }}</p>
+            <p class="text-center m-0">vote</p>
+        </div>
+        <!-- Column nbANSWER(s)-->
+        <div class="col-4 counter p-0" [ngClass]="{'border border-success' : question.nbReplies > 0, 'bg-success' : question.acceptedAnswerId != null}">
+            <p class="text-center m-0">{{ question.nbReplies }}</p>
+            <p class="text-center m-0">Answer</p>
+        </div>
+        <!-- Column nbVOTE(s)-->
+        <div class="col-4" [ngClass]="{'text-warning' : question.nbViews > 200}">
+            <p class="text-center m-0">{{ question.nbViews | nbThousandSuffixes : 2 }}</p>
+            <p class="text-center m-0 ">views</p>
+        </div>
+    </div>
+    <!-- Div columns : (Question/Tags)|Answered by -->
+    <div class="col-8">
+        <!-- Row QUESTION Title-->
+        <p class="m-0 p-0 mt-2 h4">{{ question.title }}</p>
+        <div class="row col-12 mt-3">
+            <!-- Row TAGS & SubColumn 1-->
+            <div class="col-7 d-inline m-0 p-0" >
+                <p *ngFor="let tag of question.tags" class="badge badge-secondary mr-1">{{ tag.name }}</p>
+            </div>
+            <!-- SubColumn 2 AnswerBy--> 
+            <div class="col-5 answeredby">
+                <p>Answered {{ askedMoment }} by {{ question.author.pseudo }}</p>
+            </div>
+        </div>
+    </div>
+</div>

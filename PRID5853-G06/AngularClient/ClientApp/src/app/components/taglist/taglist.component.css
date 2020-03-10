@@ -1,0 +1,12 @@
+.tags{
+    color:white;
+}
+.badge-primary{
+    color: white;
+    background: none;
+    border : 1px solid white;
+    cursor: pointer;
+}
+.tag{
+    font-size: large;
+}

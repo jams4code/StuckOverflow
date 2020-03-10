@@ -1,0 +1,16 @@
+/* .badge-secondary {
+    color: white;
+    background: red;
+    border : 1px solid white;
+    font-size: 15px;
+} */
+.close-badge{
+    background : #DC3545;
+    color: white;
+    border: none;
+    top: 1;
+    font-size: 20px;
+}
+.text{
+    font-size: 20px;
+}

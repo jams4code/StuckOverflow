@@ -1,0 +1,21 @@
+<!-- Missing : FROM API: GetByQuestionId Votes|Answer|Views|Tags|LastReply(Time)-->
+<div class="question">
+    <div class="row">
+        <div class="col-sm-10">
+            <h1>Questions : </h1>
+        </div>
+        <div class="col-sm-2">
+            <button class="btn btn-primary mt-2 " [routerLink]='["/questions/ask/0"]'>Ask Question</button>
+        </div>
+    </div>
+    <!-- Div Question -->
+    <div id="question" *ngIf="questions.length > 0">
+        <div *ngFor="let question of questions">
+            <app-post-list-item [question]="question"></app-post-list-item>
+        </div>
+        
+    </div>
+    <div id="noQuestion" *ngIf="questions.length == 0">
+        <p>No question found</p>
+    </div>
+    </div>

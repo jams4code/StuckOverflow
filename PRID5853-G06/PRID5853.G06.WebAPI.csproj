@@ -1,0 +1,42 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.2</TargetFramework>
+    <AspNetCoreHostingModel>InProcess</AspNetCoreHostingModel>
+    <RootNamespace>PRID5853.G06</RootNamespace>
+    <DefaultItemExcludes>.git\**;ClientApp\**;$(DefaultItemExcludes)</DefaultItemExcludes>
+    <AssemblyName>PRID5853.G06</AssemblyName>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="AngularClient\ClientApp\**" />
+    <Compile Remove="View\**" />
+    <Content Remove="AngularClient\ClientApp\**" />
+    <Content Remove="View\**" />
+    <EmbeddedResource Remove="AngularClient\ClientApp\**" />
+    <EmbeddedResource Remove="View\**" />
+    <None Remove="AngularClient\ClientApp\**" />
+    <None Remove="View\**" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.App" />
+    <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.2.0" PrivateAssets="All" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.2.4" />
+    <PackageReference Include="Pomelo.EntityFrameworkCore.MySql" Version="2.2.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\PRID5853.G06.Entities\PRID5853.G06.Entities.csproj" />
+    <ProjectReference Include="..\PRID5853.G06.Persistence\PRID5853.G06.Persistence.csproj" />
+    <ProjectReference Include="..\PRID_Framework\PRID_Framework.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="AngularClient\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\.editorconfig" Link=".editorconfig" />
+  </ItemGroup>
+
+</Project>

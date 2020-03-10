@@ -1,0 +1,14 @@
+<div class="full-form">
+        <h1 mat-dialog-title>Hi {{data.pseudo}}</h1>
+        <div mat-dialog-content>
+            <p>Would you like to add a comment ?</p>
+            <mat-form-field class="form">
+                <textarea matInput [(ngModel)]="data.body" ></textarea>
+            </mat-form-field>
+        </div>
+        <div mat-dialog-actions>
+            <button mat-button (click)="onNoClick()">Cancel</button>
+            <button mat-button [mat-dialog-close]="data.body" cdkFocusInitial>Confirm</button>
+        </div>
+
+</div>

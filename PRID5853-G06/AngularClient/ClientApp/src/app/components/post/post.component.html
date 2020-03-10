@@ -1,0 +1,32 @@
+<div class="post row" *ngIf="post">
+    <div class="col-sm-12">
+        <h1>{{ post.title }}</h1>
+        <div class="row col-sm-12 subTitle border-bottom">
+                <p class="mr-5"><span class="badge badge-secondary">Asked</span> {{askedDate}}</p>
+                <p class="mr-5"><span class="badge badge-secondary">Active</span> {{activeDate}}</p>
+                <p><span class="badge badge-secondary">Viewed </span> {{post.nbViews | nbThousandSuffixes : 2}} times</p>
+        </div>
+    <!--Question-->
+        <div class="border-bottom">
+            <app-post-item [init]="post"></app-post-item>
+            <!-- Answer title -->
+            <div *ngIf="post.nbReplies > 0">
+                <div *ngIf="post.nbReplies > 1">
+                    <h4>{{post.nbReplies}} Answers</h4>
+                </div>
+                <div *ngIf="post.nbReplies == 1">
+                    <h4>1 Answer</h4>
+                </div>
+            </div>
+        </div>
+    <!--Question-->
+    <!-- Answers -->
+    <div class="border-bottom" *ngFor="let reply of post?.replies">
+        <app-post-item [init]="reply" [parentPost]="post"></app-post-item>
+    </div>
+    <div>
+        <app-reply [parentId]="post.id"></app-reply>
+    </div>
+    <!--Answers end-->
+    </div>
+</div>

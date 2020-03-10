@@ -1,0 +1,73 @@
+<div class="row">
+    <div class="col-sm-5 ">
+        <h1 class="title">Ask a public question</h1>
+    </div>
+
+    <!-- Title -->
+    <div class="row form col-sm-12">
+        <div class="col-sm-12">
+            <label class="label mb-2" for="postTitle">
+                Question Title
+                <p class="subLabel mb-0 ml-2">Be specific and imagine you’re asking a question to another person</p>
+            </label>
+            <div class="input-group mt-0">
+                <div class="input-group-prepend">                
+                    <div class="input-group-text input-prepend-color">
+                          <fa-icon class="icon" [icon]="faBookmark"></fa-icon>
+                    </div> 
+                </div>
+                <input type="text" id="postTitle" class="form-control" name="postTitle"    [(ngModel)]="postService.post.title" placeholder="e.g. Is There an R function for finding the index of an element in a vector" autocomplete="off" required>
+            </div>
+        </div>
+        
+    </div>
+
+
+    <!-- BODY -->
+    <div class="row col-sm-12">
+        <div class="col-sm-12 ml-0 mr-0 mt-3">
+        <label class="label" for="body">
+            Body
+            <p class="subLabel mb-0 ml-2">Include all the information someone would need to answer your question
+
+            </p>
+        </label>           
+        <div class="input-group">     
+            <div class="input-group-prepend ">                  
+                <div  class="input-group-text input-prepend-color">
+                        <fa-icon class="icon" [icon]="faAlignLeft"></fa-icon>
+                </div> 
+            </div>
+                    <textarea   class="form-control"   [(ngModel)]="postService.post.body" rows="10"
+                    placeholder="Describe your question"></textarea>
+                </div>      
+        </div> 
+                                 
+    </div> 
+
+    <!-- TAGS -->
+    <div class="row col-sm-12 tag">
+        <div class="col-sm-12 ml-0 mr-0 mt-3">
+            <label class="label" for="tag">
+                Tags
+                <p class="subLabel mb-0 ml-2">Add up to 5 tags to describe what your question is about
+
+                </p>
+            </label>
+            <div>
+                <app-tag-container></app-tag-container>
+            </div>           
+        </div>                       
+    </div>
+
+    <!-- Save -->
+    <div class="row col-sm-12">
+        <div class="col-sm-5"></div>
+        <div class="col-sm-3 mt-5">
+                <button type="button" class="btn btn-secondary mr-2" (click)="cancel()"><fa-icon [icon]="faTimes"></fa-icon> Cancel</button>
+                    
+                <button type="button" class="btn btn-primary" (click)="save()"><fa-icon [icon]="faSave"></fa-icon> {{saveButton}}</button>
+        </div>
+        <div class="col-sm-4"></div>
+    </div>
+</div>

@@ -1,0 +1,19 @@
+.input-group>.input-group-prepend>.input-group-text {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    background-color: black;
+    color: white;
+    height: 38px;
+}
+.btnBg {
+    background-color: black;
+    color:white;
+    height: 38px;
+    border: 1px solid white;
+}
+.options {
+    background-color: white;
+    height: 164px;
+    overflow-y: scroll;
+    list-style: none;
+}

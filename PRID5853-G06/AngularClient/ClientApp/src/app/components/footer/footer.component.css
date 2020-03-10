@@ -1,0 +1,25 @@
+.footer{
+    margin-top: 150px;
+    color: white;
+}
+.icon{
+    font-size: 30px;
+    margin-right: 30px;
+}
+.copy{
+    font-variant-caps: all-petite-caps;
+    font-weight: bold;
+    font-size: 20px;
+}
+.question{
+    display: inline-flex;
+}
+.icon{
+    margin-bottom: 1;
+    margin-right: 15px;
+    color:white;
+}
+.title{
+    margin-bottom: 0;
+    margin-top: 10px;
+}
